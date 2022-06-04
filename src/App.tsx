@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
 
 function App() {
-  return <div className="App">Hello World</div>;
+  return <div className="mt-5">Hello World</div>;
 }
 
 export default App;
