@@ -17,7 +17,7 @@ const Header = (props: HeaderProps) => {
       </div>
 
       <Text fontSize="md" fontWeight="thin">
-        Automation Regression Text
+        Automation Regression Test
       </Text>
     </div>
   );
