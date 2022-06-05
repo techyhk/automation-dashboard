@@ -28,12 +28,8 @@ export const ExecutionForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div
-        className={`grid gap-4 md:grid-cols-3 grid-cols-1 ${
-          errors.url || errors.name ? 'items-center' : 'items-end'
-        }`}
-      >
-        <FormControl isInvalid={errors.url}>
+      <div className="grid gap-4 md:grid-cols-3 grid-cols-1">
+        <FormControl isInvalid={errors.url} className="md:h-24">
           <FormLabel htmlFor="first-name">Place Server URL</FormLabel>
           <Input
             id="url"
@@ -49,7 +45,7 @@ export const ExecutionForm = () => {
           </FormErrorMessage>
         </FormControl>
 
-        <FormControl isInvalid={errors.name}>
+        <FormControl isInvalid={errors.name} className="md:h-24">
           <FormLabel htmlFor="first-name">Test Case Name</FormLabel>
           <Input
             id="name"
@@ -64,9 +60,8 @@ export const ExecutionForm = () => {
           </FormErrorMessage>
         </FormControl>
 
-        <div>
+        <div className="md:h-24 flex items-center md:mt-1">
           <Button
-            mt={(errors.name || errors.url) && 1}
             width={150}
             colorScheme="teal"
             isLoading={isSubmitting}

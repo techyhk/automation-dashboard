@@ -1,5 +1,6 @@
 import { Text } from '@chakra-ui/react';
 import React from 'react';
+import { dataTranslate } from '../configs/dataTranslate';
 
 import { SummaryData } from '../types/summary_data';
 
@@ -19,7 +20,7 @@ const renderData = ({
   key: any;
 }) => {
   return (
-    <div key={key}>
+    <div key={key} className="flex items-center flex-col text-center">
       <Text fontSize="xl" fontWeight="bold" color={`${color}`}>
         {amount}
       </Text>
@@ -32,17 +33,6 @@ const renderData = ({
 };
 
 export const Summary = ({ data }: SummaryProps) => {
-  const textObj: {
-    [key in keyof SummaryData]: string;
-  } = {
-    to_be_execute: 'Test cases to be execute',
-    executed: 'Executed',
-    passed: 'Passed',
-    failed: 'Failed',
-    in_progress: 'In Progress',
-    skip: 'In Progress',
-  };
-
   const colorObj: {
     [key in keyof SummaryData]: string;
   } = {
@@ -56,13 +46,13 @@ export const Summary = ({ data }: SummaryProps) => {
 
   return (
     <div
-      className={`bg-white rounded-md p-5 grid gap-4 md:grid-cols-6 md:grid-cols-1`}
+      className={`bg-white rounded-md px-3 py-5 grid gap-4 md:grid-cols-6 grid-cols-1`}
     >
       {Object.keys(data).map((key, index) =>
         renderData({
           key: index,
           amount: (data as any)[key],
-          name: (textObj as any)[key],
+          name: (dataTranslate as any)[key],
           color: (colorObj as any)[key],
         })
       )}
