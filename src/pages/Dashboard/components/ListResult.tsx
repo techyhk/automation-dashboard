@@ -5,6 +5,7 @@ import { dataTranslate } from '../configs/dataTranslate';
 import { TestCaseStatus } from '../types/summary_data';
 import { Button, Icon } from '@chakra-ui/react';
 import { MdOutlineCancel } from 'react-icons/md';
+import { FilterListResult } from './FilterListResult';
 
 export const ListResult = () => {
   const columns = [
@@ -46,14 +47,14 @@ export const ListResult = () => {
       name: 'MELU-PIN-6630_1',
       description: 'EQ - IL -FT: Planned Interruption Notification',
       category: 'OWNX',
-      status: 'to_be_execute',
+      status: TestCaseStatus.to_be_execute,
     },
     {
       market: 'NEM',
       name: 'MELU-PIN-6630_1',
       description: 'EQ - IL -FT: Planned Interruption Notification',
       category: 'OWNX',
-      status: 'passed',
+      status: TestCaseStatus.passed,
     },
   ];
 
@@ -82,6 +83,11 @@ export const ListResult = () => {
       data={generateData()}
       columns={columns}
       heading="Test Execution Result"
+      filter={() => (
+        <div>
+          <FilterListResult />
+        </div>
+      )}
     ></Table>
   );
 };

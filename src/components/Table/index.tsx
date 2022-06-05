@@ -6,17 +6,19 @@ interface TableProps {
   columns: Array<{ Header: string; accessor: any }>;
   data: Array<any>;
   heading?: string;
+  filter?: () => JSX.Element;
 }
-export const Table = ({ columns, data, heading }: TableProps) => {
+export const Table = ({ columns, data, heading, filter }: TableProps) => {
   const [page, setPage] = React.useState(1);
 
   return (
-    <div className="bg-white rounded-md">
+    <>
       {heading && (
-        <Heading size="sm" as="h3" className="px-10 pt-10">
+        <Heading size="sm" as="h3" className="px-10">
           {heading}
         </Heading>
       )}
+      {filter && <div className="px-10 pt-10">{filter()}</div>}
       <Box mt="6">
         <PaginationTable
           colorScheme="blue"
@@ -28,6 +30,6 @@ export const Table = ({ columns, data, heading }: TableProps) => {
           data={data}
         />
       </Box>
-    </div>
+    </>
   );
 };

@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.1.2",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "chakra-react-select": "^4.0.0",
     "chart.js": "^3.8.0",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",

@@ -34,7 +34,9 @@ export const Dashboard = () => {
 
       <div className="mt-10 grid xl:grid-cols-5">
         <div className="xl:col-span-3">
-          <ListResult />
+          <div className="bg-white rounded-md pt-10">
+            <ListResult />
+          </div>
         </div>
         <div></div>
       </div>

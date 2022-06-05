@@ -1,7 +1,7 @@
-import { SummaryData } from '../types/summary_data';
+import { TestCaseStatus } from '../types/summary_data';
 
 export const dataTranslate: {
-  [key in keyof SummaryData]: string;
+  [key in TestCaseStatus]: string;
 } = {
   to_be_execute: 'Test cases to be execute',
   executed: 'Executed',
