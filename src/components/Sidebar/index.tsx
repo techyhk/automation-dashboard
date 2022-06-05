@@ -81,11 +81,12 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Image src={HansenLogo} boxSize="50px" objectFit="cover" />
-        <Text fontSize="sm" fontWeight="bold">
+        <Text fontSize="sm" fontWeight="medium">
           Automation Tool
         </Text>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
+      <div className="border border-gray-300 h-px"></div>
       <div className="mt-5">
         {LinkItems.map((link) => (
           <NavItem key={link.name} icon={link.icon}>
@@ -161,7 +162,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       />
       <div className="ml-5 flex flex-row items-center">
         <Image src={HansenLogo} boxSize="50px" objectFit="cover" />
-        <Text fontSize="sm" fontWeight="bold" className="ml-3">
+        <Text fontSize="sm" fontWeight="medium" className="ml-3">
           Automation Tool
         </Text>
       </div>
