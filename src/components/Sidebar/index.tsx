@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import {
   IconButton,
   Box,
@@ -16,23 +16,11 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { FiMenu } from 'react-icons/fi';
-import { MdOutlineSchedule } from 'react-icons/md';
-import { RiDashboardLine } from 'react-icons/ri';
-import { TbReport } from 'react-icons/tb';
 import { IconType } from 'react-icons';
-import { ReactText } from 'react';
 
 import HansenLogo from '../../assets/logo/hansen-logo.png';
-
-interface LinkItemProps {
-  name: string;
-  icon: IconType;
-}
-const LinkItems: Array<LinkItemProps> = [
-  { name: 'Dashboard', icon: RiDashboardLine },
-  { name: 'Schedule', icon: MdOutlineSchedule },
-  { name: 'Report', icon: TbReport },
-];
+import { LinkItems } from './config';
+import { useNavigate } from 'react-router-dom';
 
 export default function Sidebar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -69,6 +57,13 @@ interface SidebarProps extends BoxProps {
 }
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  const navigate = useNavigate();
+  const [activeMenu, setActiveMenu] = useState(0);
+
+  useEffect(() => {
+    navigate(LinkItems[0].route);
+  }, []);
+
   return (
     <Box
       bg={useColorModeValue('white', 'gray.900')}
@@ -88,9 +83,21 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       </Flex>
       <div className="border border-gray-300 h-px"></div>
       <div className="mt-5">
-        {LinkItems.map((link) => (
-          <NavItem key={link.name} icon={link.icon}>
-            {link.name}
+        {LinkItems.map((link, index) => (
+          <NavItem
+            key={link.name}
+            icon={activeMenu === index ? link.activeIcon : link.icon}
+            onClick={() => {
+              navigate(link.route);
+              setActiveMenu(index);
+            }}
+          >
+            <Text
+              fontWeight={activeMenu === index ? 'bold' : 'light'}
+              size="sm"
+            >
+              {link.name}
+            </Text>
           </NavItem>
         ))}
       </div>
@@ -100,7 +107,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 
 interface NavItemProps extends FlexProps {
   icon: IconType;
-  children: ReactText;
+  children: any;
 }
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   return (
