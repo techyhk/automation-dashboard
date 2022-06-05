@@ -19,15 +19,22 @@ import { FiMenu } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 
 import HansenLogo from '@assets/logo/hansen-logo.png';
-import { LinkItems } from './config';
 import { useNavigate } from 'react-router-dom';
+import { LinkItemProps } from '@configs/sidebar';
 
-export const Sidebar = ({ children }: { children: ReactNode }) => {
+export const Sidebar = ({
+  children,
+  config,
+}: {
+  children: ReactNode;
+  config: Array<LinkItemProps>;
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent
         onClose={() => onClose}
+        config={config}
         display={{ base: 'none', md: 'block' }}
       />
       <Drawer
@@ -40,7 +47,7 @@ export const Sidebar = ({ children }: { children: ReactNode }) => {
         size="full"
       >
         <DrawerContent>
-          <SidebarContent onClose={onClose} />
+          <SidebarContent onClose={onClose} config={config} />
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
@@ -54,14 +61,15 @@ export const Sidebar = ({ children }: { children: ReactNode }) => {
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
+  config: Array<LinkItemProps>;
 }
 
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+const SidebarContent = ({ onClose, config, ...rest }: SidebarProps) => {
   const navigate = useNavigate();
   const [activeMenu, setActiveMenu] = useState(0);
 
   useEffect(() => {
-    navigate(LinkItems[0].route);
+    navigate(config[0].route);
   }, []);
 
   return (
@@ -83,7 +91,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       </Flex>
       <div className="border border-gray-300 h-px"></div>
       <div className="mt-5">
-        {LinkItems.map((link, index) => (
+        {config.map((link, index) => (
           <NavItem
             key={link.name}
             icon={activeMenu === index ? link.activeIcon : link.icon}

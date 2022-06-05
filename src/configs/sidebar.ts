@@ -4,14 +4,14 @@ import { TbReport } from 'react-icons/tb';
 
 import { IconType } from 'react-icons';
 
-interface LinkItemProps {
+export interface LinkItemProps {
   name: string;
   icon: IconType;
   activeIcon: IconType;
   route: string;
 }
 
-export const LinkItems: Array<LinkItemProps> = [
+export const sidebarConfig: Array<LinkItemProps> = [
   {
     name: 'Dashboard',
     icon: RiDashboardLine,

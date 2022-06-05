@@ -1,20 +1,32 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 
-import { routes as AppRoutes } from '@routes/index';
 import { Sidebar } from '@components/Sidebar';
+import { routesConfig } from '@configs/routes';
+import { sidebarConfig } from '@configs/sidebar';
 
 function App() {
+  const renderRoutes = () => {
+    return (
+      <Routes>
+        {routesConfig.map((route, index) => (
+          <Route
+            key={`routes_${index}`}
+            path={route.path}
+            element={route.element()}
+          />
+        ))}
+      </Routes>
+    );
+  };
   return (
     <div>
       <ChakraProvider>
         <RecoilRoot>
           <BrowserRouter>
-            <Sidebar>
-              <AppRoutes />
-            </Sidebar>
+            <Sidebar config={sidebarConfig}>{renderRoutes()}</Sidebar>
           </BrowserRouter>
         </RecoilRoot>
       </ChakraProvider>
