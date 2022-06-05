@@ -13,6 +13,8 @@ specifiers:
   '@typescript-eslint/parser': ^5.0.0
   '@vitejs/plugin-react': ^1.3.0
   autoprefixer: ^10.4.7
+  chakra-react-select: ^4.0.0
+  chart.js: ^3.8.0
   eslint: ^8.17.0
   eslint-config-prettier: ^8.5.0
   eslint-config-react: ^1.1.7
@@ -25,9 +27,13 @@ specifiers:
   prettier: ^2.6.2
   pretty-quick: ^3.1.3
   react: ^18.0.0
+  react-chakra-pagination: ^1.0.1
+  react-chartjs-2: ^4.1.0
   react-dom: ^18.0.0
+  react-hook-form: ^7.31.3
   react-icons: ^4.4.0
   react-router-dom: '6'
+  react-table: ^7.8.0
   recoil: ^0.7.3
   sass: ^1.52.2
   tailwindcss: ^3.0.24
@@ -39,6 +45,8 @@ dependencies:
   '@chakra-ui/react': 2.1.2_d5831f95abafb2fa08a75c714b1a32c9
   '@emotion/react': 11.9.0_38a36359dd5afa839a34fd1af483a3dc
   '@emotion/styled': 11.8.1_1c1a328a1c3301833285228a4ce2b8ce
+  chakra-react-select: 4.0.0_9eb8bcb37f2ceb565097812dc1ba2946
+  chart.js: 3.8.0
   eslint: 8.17.0
   eslint-config-prettier: 8.5.0_eslint@8.17.0
   eslint-config-react: 1.1.7
@@ -47,9 +55,13 @@ dependencies:
   eslint-plugin-react-hooks: 4.5.0_eslint@8.17.0
   framer-motion: 6.3.10_react-dom@18.1.0+react@18.1.0
   react: 18.1.0
+  react-chakra-pagination: 1.0.1
+  react-chartjs-2: 4.1.0_chart.js@3.8.0+react@18.1.0
   react-dom: 18.1.0_react@18.1.0
+  react-hook-form: 7.31.3_react@18.1.0
   react-icons: 4.4.0_react@18.1.0
   react-router-dom: 6.3.0_react-dom@18.1.0+react@18.1.0
+  react-table: 7.8.0_react@18.1.0
   recoil: 0.7.3_react-dom@18.1.0+react@18.1.0
   vite-plugin-eslint: 1.6.1_eslint@8.17.0+vite@2.9.9
 
@@ -2038,7 +2050,6 @@ packages:
       {
         integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==,
       }
-    dev: true
 
   /@types/react-dom/18.0.5:
     resolution:
@@ -2049,6 +2060,15 @@ packages:
       '@types/react': 18.0.11
     dev: true
 
+  /@types/react-transition-group/4.4.4:
+    resolution:
+      {
+        integrity: sha512-7gAPz7anVK5xzbeQW9wFBDg7G++aPLAFY0QaSMOou9rJZpbuI58WAuJrgu+qR92l61grlnCUe7AFX8KGahAgug==,
+      }
+    dependencies:
+      '@types/react': 18.0.11
+    dev: false
+
   /@types/react/18.0.11:
     resolution:
       {
@@ -2058,14 +2078,12 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
       csstype: 3.1.0
-    dev: true
 
   /@types/scheduler/0.16.2:
     resolution:
       {
         integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==,
       }
-    dev: true
 
   /@typescript-eslint/eslint-plugin/5.27.0_53a3a26d566b734365db03aac28a1a58:
     resolution:
@@ -2576,6 +2594,33 @@ packages:
       }
     dev: true
 
+  /chakra-react-select/4.0.0_9eb8bcb37f2ceb565097812dc1ba2946:
+    resolution:
+      {
+        integrity: sha512-Z8LYqSVN15qybZZc8mObPdAfoiSVM/qSNsE9JKw/UnS99x5wTtGgWFr4rm4re79qe9gqJtYbKaFfgkhTuryjFQ==,
+      }
+    peerDependencies:
+      '@emotion/react': ^11.8.1
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      '@chakra-ui/form-control': 2.0.1_354f81d2ea3fd6011d5690b064051a0c
+      '@chakra-ui/icon': 3.0.1_354f81d2ea3fd6011d5690b064051a0c
+      '@chakra-ui/layout': 2.0.1_354f81d2ea3fd6011d5690b064051a0c
+      '@chakra-ui/menu': 2.0.2_262861e442556254e605f242137a9c03
+      '@chakra-ui/spinner': 2.0.1_354f81d2ea3fd6011d5690b064051a0c
+      '@chakra-ui/system': 2.1.1_9f23f4097fbec8b91de0b8b9767d3123
+      '@emotion/react': 11.9.0_38a36359dd5afa839a34fd1af483a3dc
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-select: 5.3.2_0ff91dc9f072ee5fea0dc33007fd8baf
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@emotion/styled'
+      - '@types/react'
+      - framer-motion
+    dev: false
+
   /chalk/2.4.2:
     resolution:
       {
@@ -2607,6 +2652,13 @@ packages:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
+
+  /chart.js/3.8.0:
+    resolution:
+      {
+        integrity: sha512-cr8xhrXjLIXVLOBZPkBZVF6NDeiVIrPLHcMhnON7UufudL+CNeRrD+wpYanswlm8NpudMdrt3CHoLMQMxJhHRg==,
+      }
+    dev: false
 
   /chokidar/3.5.3:
     resolution:
@@ -2970,6 +3022,16 @@ packages:
     engines: { node: '>=6.0.0' }
     dependencies:
       esutils: 2.0.3
+    dev: false
+
+  /dom-helpers/5.2.1:
+    resolution:
+      {
+        integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==,
+      }
+    dependencies:
+      '@babel/runtime': 7.18.3
+      csstype: 3.1.0
     dev: false
 
   /dot-prop/5.3.0:
@@ -4646,6 +4708,13 @@ packages:
     engines: { node: '>=8' }
     dev: true
 
+  /memoize-one/5.2.1:
+    resolution:
+      {
+        integrity: sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==,
+      }
+    dev: false
+
   /meow/8.1.2:
     resolution:
       {
@@ -5272,6 +5341,26 @@ packages:
     engines: { node: '>=10' }
     dev: true
 
+  /react-chakra-pagination/1.0.1:
+    resolution:
+      {
+        integrity: sha512-S/ldhbvYBXpmOuurNm4s9KmOa7A2i+PInE1GVwTauS3BDkAePp1TfpWhScq/V2f3Mq57uFEFlkVMWTTsukc+6A==,
+      }
+    dev: false
+
+  /react-chartjs-2/4.1.0_chart.js@3.8.0+react@18.1.0:
+    resolution:
+      {
+        integrity: sha512-AsUihxEp8Jm1oBhbEovE+w50m9PVNhz1sfwEIT4hZduRC0m14gHWHd0cUaxkFDb8HNkdMIGzsNlmVqKiOpU74g==,
+      }
+    peerDependencies:
+      chart.js: ^3.5.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      chart.js: 3.8.0
+      react: 18.1.0
+    dev: false
+
   /react-clientside-effect/1.2.6_react@18.1.0:
     resolution:
       {
@@ -5324,6 +5413,18 @@ packages:
       react-clientside-effect: 1.2.6_react@18.1.0
       use-callback-ref: 1.3.0_be42b9411d2b818ab9698e8c4a3f3720
       use-sidecar: 1.1.2_be42b9411d2b818ab9698e8c4a3f3720
+    dev: false
+
+  /react-hook-form/7.31.3_react@18.1.0:
+    resolution:
+      {
+        integrity: sha512-NVZdCWViIWXXXlQ3jxVQH0NuNfwPf8A/0KvuCxrM9qxtP1qYosfR2ZudarziFrVOC7eTUbWbm1T4OyYCwv9oSQ==,
+      }
+    engines: { node: '>=12.22.0' }
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.1.0
     dev: false
 
   /react-icons/4.4.0_react@18.1.0:
@@ -5420,6 +5521,29 @@ packages:
       react: 18.1.0
     dev: false
 
+  /react-select/5.3.2_0ff91dc9f072ee5fea0dc33007fd8baf:
+    resolution:
+      {
+        integrity: sha512-W6Irh7U6Ha7p5uQQ2ZnemoCQ8mcfgOtHfw3wuMzG6FAu0P+CYicgofSLOq97BhjMx8jS+h+wwWdCBeVVZ9VqlQ==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.18.3
+      '@emotion/cache': 11.7.1
+      '@emotion/react': 11.9.0_38a36359dd5afa839a34fd1af483a3dc
+      '@types/react-transition-group': 4.4.4
+      memoize-one: 5.2.1
+      prop-types: 15.8.1
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-transition-group: 4.4.2_react-dom@18.1.0+react@18.1.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@types/react'
+    dev: false
+
   /react-style-singleton/2.2.0_be42b9411d2b818ab9698e8c4a3f3720:
     resolution:
       {
@@ -5438,6 +5562,34 @@ packages:
       invariant: 2.2.4
       react: 18.1.0
       tslib: 2.4.0
+    dev: false
+
+  /react-table/7.8.0_react@18.1.0:
+    resolution:
+      {
+        integrity: sha512-hNaz4ygkZO4bESeFfnfOft73iBUj8K5oKi1EcSHPAibEydfsX2MyU6Z8KCr3mv3C9Kqqh71U+DhZkFvibbnPbA==,
+      }
+    peerDependencies:
+      react: ^16.8.3 || ^17.0.0-0 || ^18.0.0
+    dependencies:
+      react: 18.1.0
+    dev: false
+
+  /react-transition-group/4.4.2_react-dom@18.1.0+react@18.1.0:
+    resolution:
+      {
+        integrity: sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==,
+      }
+    peerDependencies:
+      react: '>=16.6.0'
+      react-dom: '>=16.6.0'
+    dependencies:
+      '@babel/runtime': 7.18.3
+      dom-helpers: 5.2.1
+      loose-envify: 1.4.0
+      prop-types: 15.8.1
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
     dev: false
 
   /react/18.1.0:
