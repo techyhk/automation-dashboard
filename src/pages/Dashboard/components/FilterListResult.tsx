@@ -29,6 +29,7 @@ export const FilterListResult = () => {
     <div className="grid md:grid-cols-2 grid-cols-1 gap-7">
       <SingleSelect
         options={options}
+        placeholder="Filter by"
         onChange={(value) => setFilterBy(value)}
       />
 
