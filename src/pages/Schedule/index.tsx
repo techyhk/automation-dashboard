@@ -1,8 +1,11 @@
 import React from 'react';
-import Header from '../../components/Header';
+import { Header } from '@components/Header';
+import { MainWrapper } from '@components/MainWrapper';
 
-const Schedule = () => {
-  return <Header name="Schedule" />;
+export const Schedule = () => {
+  return (
+    <MainWrapper>
+      <Header name="Schedule" />
+    </MainWrapper>
+  );
 };
-
-export default Schedule;

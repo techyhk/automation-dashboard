@@ -1,8 +1,11 @@
 import React from 'react';
-import Header from '../../components/Header';
+import { Header } from '@components/Header';
+import { MainWrapper } from '@components/MainWrapper';
 
-const Report = () => {
-  return <Header name="Report" />;
+export const Report = () => {
+  return (
+    <MainWrapper>
+      <Header name="Report" />
+    </MainWrapper>
+  );
 };
-
-export default Report;

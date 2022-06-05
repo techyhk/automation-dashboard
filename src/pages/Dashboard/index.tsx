@@ -1,8 +1,11 @@
 import React from 'react';
-import Header from '../../components/Header';
+import { MainWrapper } from '@components/MainWrapper';
+import { Header } from '@components/Header';
 
-const Dashboard = () => {
-  return <Header name="Dashboard" />;
+export const Dashboard = () => {
+  return (
+    <MainWrapper>
+      <Header name="Dashboard" />
+    </MainWrapper>
+  );
 };
-
-export default Dashboard;

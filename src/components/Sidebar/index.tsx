@@ -18,11 +18,11 @@ import {
 import { FiMenu } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 
-import HansenLogo from '../../assets/logo/hansen-logo.png';
+import HansenLogo from '@assets/logo/hansen-logo.png';
 import { LinkItems } from './config';
 import { useNavigate } from 'react-router-dom';
 
-export default function Sidebar({ children }: { children: ReactNode }) {
+export const Sidebar = ({ children }: { children: ReactNode }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
@@ -50,7 +50,7 @@ export default function Sidebar({ children }: { children: ReactNode }) {
       </Box>
     </Box>
   );
-}
+};
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;

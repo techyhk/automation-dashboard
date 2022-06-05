@@ -3,8 +3,8 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 
-import AppRoutes from './routes';
-import Sidebar from './components/Sidebar';
+import { routes as AppRoutes } from '@routes/index';
+import { Sidebar } from '@components/Sidebar';
 
 function App() {
   return (

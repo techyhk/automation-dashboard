@@ -6,9 +6,9 @@ interface HeaderProps {
   name: string;
 }
 
-const Header = (props: HeaderProps) => {
+export const Header = (props: HeaderProps) => {
   return (
-    <div className="pl-5 pt-5 ">
+    <>
       <div className="flex flex-row items-center">
         <Text fontSize="2xl" fontWeight="semibold">
           {props.name.toUpperCase()}
@@ -19,8 +19,6 @@ const Header = (props: HeaderProps) => {
       <Text fontSize="md" fontWeight="thin">
         Automation Regression Test
       </Text>
-    </div>
+    </>
   );
 };
-
-export default Header;
