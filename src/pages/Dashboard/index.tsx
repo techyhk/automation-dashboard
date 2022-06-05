@@ -4,6 +4,7 @@ import { Header } from '@components/Header';
 import { ExecutionForm } from './components/ExecutionForm';
 import { Summary } from './components/Summary';
 import { Chart } from './components/Chart';
+import { ListResult } from './components/ListResult';
 
 export const Dashboard = () => {
   const data = {
@@ -29,6 +30,13 @@ export const Dashboard = () => {
         <div className="xl:block lg:block hidden">
           <Chart data={data} />
         </div>
+      </div>
+
+      <div className="mt-10 grid xl:grid-cols-5">
+        <div className="xl:col-span-3">
+          <ListResult />
+        </div>
+        <div></div>
       </div>
     </MainWrapper>
   );
