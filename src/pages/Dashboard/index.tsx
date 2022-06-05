@@ -26,7 +26,7 @@ export const Dashboard = () => {
         <div className="xl:col-span-3 lg:col-span-2">
           <Summary data={data} />
         </div>
-        <div>
+        <div className="xl:block lg:block hidden">
           <Chart data={data} />
         </div>
       </div>
