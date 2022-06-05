@@ -1,10 +1,10 @@
 import React from 'react';
-import { Badge } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 
 import AppRoutes from './routes';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
@@ -12,8 +12,9 @@ function App() {
       <ChakraProvider>
         <RecoilRoot>
           <BrowserRouter>
-            <Badge>Default</Badge>
-            <AppRoutes />
+            <Sidebar>
+              <AppRoutes />
+            </Sidebar>
           </BrowserRouter>
         </RecoilRoot>
       </ChakraProvider>
