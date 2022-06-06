@@ -5,6 +5,10 @@ import { Schedule } from '@pages/Schedule';
 export const routesConfig: Array<{ path: string; element: () => JSX.Element }> =
   [
     {
+      path: '/',
+      element: Dashboard,
+    },
+    {
       path: '/dashboard',
       element: Dashboard,
     },
