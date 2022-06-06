@@ -21,6 +21,7 @@
       "@atom/*": ["src/atoms/*"],
       "@components/*": ["src/components/*"],
       "@configs/*": ["src/configs/*"],
+      "@constants/*": ["src/constants/*"],
       "@pages/*": ["src/pages/*"]
     }
   },

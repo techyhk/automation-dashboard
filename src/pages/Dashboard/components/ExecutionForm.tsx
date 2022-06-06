@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react';
 
 import { useForm } from 'react-hook-form';
-import { EMAIL_REGEXP } from '@configs/regexp';
+import { EMAIL_REGEXP } from '@constants/regexp';
 
 export const ExecutionForm = () => {
   const {
