@@ -46,10 +46,10 @@ export const Summary = ({ data }: SummaryProps) => {
 
   return (
     <>
-      <Heading size="md" as="h2" className="px-10 pt-10 pb-5">
+      <Heading size="md" as="h2" className="pb-5">
         Summary
       </Heading>
-      <div className="px-3 py-5 grid gap-4 md:grid-cols-6 grid-cols-1">
+      <div className="py-5 grid gap-4 md:grid-cols-6 grid-cols-1">
         {Object.keys(data).map((key, index) =>
           renderData({
             key: index,

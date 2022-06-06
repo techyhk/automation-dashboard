@@ -26,8 +26,9 @@ export const Dashboard = () => {
       <div className="md:mt-10 mt-16 gap-10 grid xl:grid-cols-5 lg:grid-cols-3 grid-cols-1">
         <div className="xl:col-span-3 lg:col-span-2">
           <div className="bg-white rounded-md ">
-            <Summary data={data} />
-            <div className="border border-blue-300"></div>
+            <div className="mt-5">
+              <Summary data={data} />
+            </div>
             <div className="mt-10">
               <ListResult />
             </div>
