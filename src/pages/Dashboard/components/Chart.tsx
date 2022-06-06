@@ -26,19 +26,5 @@ export const Chart = ({ data }: { data: SummaryData }) => {
     };
   };
 
-  return (
-    <Pie
-      data={generatePieData(data)}
-      options={{
-        plugins: {
-          tooltip: {
-            enabled: false,
-          },
-          legend: {
-            display: false,
-          },
-        },
-      }}
-    />
-  );
+  return <Pie data={generatePieData(data)} />;
 };
