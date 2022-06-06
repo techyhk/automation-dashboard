@@ -19,7 +19,7 @@ import { FiMenu } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 
 import HansenLogo from '@assets/logo/hansen-logo.png';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { LinkItemProps } from '@configs/sidebar';
 
 export const Sidebar = ({
@@ -66,10 +66,16 @@ interface SidebarProps extends BoxProps {
 
 const SidebarContent = ({ onClose, config, ...rest }: SidebarProps) => {
   const navigate = useNavigate();
-  const [activeMenu, setActiveMenu] = useState(0);
+  const location = useLocation();
+
+  const [activePath, setActivePath] = useState('/dashboard');
 
   useEffect(() => {
-    navigate(config[0].route);
+    const path =
+      location.pathname !== '/' ? location.pathname : config[0].route;
+
+    navigate(path);
+    setActivePath(path);
   }, []);
 
   return (
@@ -91,17 +97,17 @@ const SidebarContent = ({ onClose, config, ...rest }: SidebarProps) => {
       </Flex>
       <div className="border border-gray-300 h-px"></div>
       <div className="mt-5">
-        {config.map((link, index) => (
+        {config.map((link) => (
           <NavItem
             key={link.name}
-            icon={activeMenu === index ? link.activeIcon : link.icon}
+            icon={activePath === link.route ? link.activeIcon : link.icon}
             onClick={() => {
               navigate(link.route);
-              setActiveMenu(index);
+              setActivePath(link.route);
             }}
           >
             <Text
-              fontWeight={activeMenu === index ? 'bold' : 'light'}
+              fontWeight={activePath === link.route ? 'bold' : 'light'}
               size="sm"
             >
               {link.name}

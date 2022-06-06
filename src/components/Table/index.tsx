@@ -14,7 +14,7 @@ export const Table = ({ columns, data, heading, filter }: TableProps) => {
   return (
     <>
       {heading && (
-        <Heading size="sm" as="h3" className="px-10">
+        <Heading size="md" as="h2" className="px-10">
           {heading}
         </Heading>
       )}
