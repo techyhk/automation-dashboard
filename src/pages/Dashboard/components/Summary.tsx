@@ -1,4 +1,4 @@
-import { Text } from '@chakra-ui/react';
+import { Heading, Text } from '@chakra-ui/react';
 import React from 'react';
 import { dataTranslate } from '../configs/dataTranslate';
 
@@ -45,17 +45,20 @@ export const Summary = ({ data }: SummaryProps) => {
   };
 
   return (
-    <div
-      className={`bg-white rounded-md px-3 py-5 grid gap-4 md:grid-cols-6 grid-cols-1`}
-    >
-      {Object.keys(data).map((key, index) =>
-        renderData({
-          key: index,
-          amount: (data as any)[key],
-          name: (dataTranslate as any)[key],
-          color: (colorObj as any)[key],
-        })
-      )}
-    </div>
+    <>
+      <Heading size="md" as="h2" className="px-10 pt-10 pb-5">
+        Summary
+      </Heading>
+      <div className="px-3 py-5 grid gap-4 md:grid-cols-6 grid-cols-1">
+        {Object.keys(data).map((key, index) =>
+          renderData({
+            key: index,
+            amount: (data as any)[key],
+            name: (dataTranslate as any)[key],
+            color: (colorObj as any)[key],
+          })
+        )}
+      </div>
+    </>
   );
 };
