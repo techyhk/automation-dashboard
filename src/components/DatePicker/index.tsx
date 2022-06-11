@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import React, { FC, forwardRef, useCallback, useMemo } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import ReactDatePicker from 'react-datepicker';
@@ -131,7 +132,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   const styles = useDatePickerStyles();
 
   const render = useCallback(
-    ({ css }) => {
+    ({ css }: { css: any }) => {
       return (
         <ReactDatePicker
           dateFormat={showTimeSelect ? 'hh:mm dd MMMM, yyy' : 'dd MMMM, yyy'}
