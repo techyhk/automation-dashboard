@@ -10,6 +10,7 @@ specifiers:
   '@emotion/react': ^11
   '@emotion/styled': ^11
   '@types/react': ^18.0.0
+  '@types/react-datepicker': ^4.4.2
   '@types/react-dom': ^18.0.0
   '@types/react-table': ^7.7.12
   '@typescript-eslint/eslint-plugin': ^5.27.0
@@ -32,6 +33,7 @@ specifiers:
   react: ^18.0.0
   react-chakra-pagination: ^1.0.1
   react-chartjs-2: ^4.1.0
+  react-datepicker: ^4.8.0
   react-dom: ^18.0.0
   react-hook-form: ^7.31.3
   react-icons: ^4.4.0
@@ -62,6 +64,7 @@ dependencies:
   react: 18.1.0
   react-chakra-pagination: 1.0.1
   react-chartjs-2: 4.1.0_chart.js@3.8.0+react@18.1.0
+  react-datepicker: 4.8.0_react-dom@18.1.0+react@18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-hook-form: 7.31.3_react@18.1.0
   react-icons: 4.4.0_react@18.1.0
@@ -75,6 +78,7 @@ devDependencies:
   '@commitlint/cli': 17.0.2
   '@commitlint/config-conventional': 17.0.2
   '@types/react': 18.0.11
+  '@types/react-datepicker': 4.4.2_react-dom@18.1.0+react@18.1.0
   '@types/react-dom': 18.0.5
   '@types/react-table': 7.7.12
   '@typescript-eslint/eslint-plugin': 5.27.0_53a3a26d566b734365db03aac28a1a58
@@ -1953,7 +1957,6 @@ packages:
       {
         integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==,
       }
-    dev: false
 
   /@rollup/pluginutils/4.2.1:
     resolution:
@@ -2071,6 +2074,21 @@ packages:
       {
         integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==,
       }
+
+  /@types/react-datepicker/4.4.2_react-dom@18.1.0+react@18.1.0:
+    resolution:
+      {
+        integrity: sha512-g8DhWvYmaIMLzVrIEVLXncylyImyBaoPsEUr3yR13JDaaHoebhDorqnVv4tLkNGa8SjBB8SAOQvxD5jaPNBX8A==,
+      }
+    dependencies:
+      '@popperjs/core': 2.11.5
+      '@types/react': 18.0.11
+      date-fns: 2.28.0
+      react-popper: 2.3.0_e6b0874f4dd5920661b62e72c1fe6ada
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: true
 
   /@types/react-dom/18.0.5:
     resolution:
@@ -2708,6 +2726,13 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /classnames/2.3.1:
+    resolution:
+      {
+        integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==,
+      }
+    dev: false
+
   /cliui/7.0.4:
     resolution:
       {
@@ -2923,6 +2948,13 @@ packages:
       }
     engines: { node: '>=8' }
     dev: true
+
+  /date-fns/2.28.0:
+    resolution:
+      {
+        integrity: sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==,
+      }
+    engines: { node: '>=0.11' }
 
   /debug/4.3.4:
     resolution:
@@ -4703,7 +4735,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: false
 
   /lru-cache/6.0.0:
     resolution:
@@ -5403,6 +5434,25 @@ packages:
       react: 18.1.0
     dev: false
 
+  /react-datepicker/4.8.0_react-dom@18.1.0+react@18.1.0:
+    resolution:
+      {
+        integrity: sha512-u69zXGHMpxAa4LeYR83vucQoUCJQ6m/WBsSxmUMu/M8ahTSVMMyiyQzauHgZA2NUr9y0FUgOAix71hGYUb6tvg==,
+      }
+    peerDependencies:
+      react: ^16.9.0 || ^17 || ^18
+      react-dom: ^16.9.0 || ^17 || ^18
+    dependencies:
+      '@popperjs/core': 2.11.5
+      classnames: 2.3.1
+      date-fns: 2.28.0
+      prop-types: 15.8.1
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-onclickoutside: 6.12.2_react-dom@18.1.0+react@18.1.0
+      react-popper: 2.3.0_e6b0874f4dd5920661b62e72c1fe6ada
+    dev: false
+
   /react-dom/18.1.0_react@18.1.0:
     resolution:
       {
@@ -5421,7 +5471,6 @@ packages:
       {
         integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==,
       }
-    dev: false
 
   /react-focus-lock/2.9.1_be42b9411d2b818ab9698e8c4a3f3720:
     resolution:
@@ -5474,6 +5523,35 @@ packages:
         integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
       }
     dev: false
+
+  /react-onclickoutside/6.12.2_react-dom@18.1.0+react@18.1.0:
+    resolution:
+      {
+        integrity: sha512-NMXGa223OnsrGVp5dJHkuKxQ4czdLmXSp5jSV9OqiCky9LOpPATn3vLldc+q5fK3gKbEHvr7J1u0yhBh/xYkpA==,
+      }
+    peerDependencies:
+      react: ^15.5.x || ^16.x || ^17.x || ^18.x
+      react-dom: ^15.5.x || ^16.x || ^17.x || ^18.x
+    dependencies:
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    dev: false
+
+  /react-popper/2.3.0_e6b0874f4dd5920661b62e72c1fe6ada:
+    resolution:
+      {
+        integrity: sha512-e1hj8lL3uM+sgSR4Lxzn5h1GxBlpa4CQz0XLF8kx4MDrDRWY0Ena4c97PUeSX9i5W3UAfDP0z0FXCTQkoXUl3Q==,
+      }
+    peerDependencies:
+      '@popperjs/core': ^2.0.0
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: ^16.8.0 || ^17 || ^18
+    dependencies:
+      '@popperjs/core': 2.11.5
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-fast-compare: 3.2.0
+      warning: 4.0.3
 
   /react-refresh/0.13.0:
     resolution:
@@ -6457,6 +6535,14 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /warning/4.0.3:
+    resolution:
+      {
+        integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==,
+      }
+    dependencies:
+      loose-envify: 1.4.0
 
   /which-boxed-primitive/1.0.2:
     resolution:

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   Checkbox,
   CheckboxGroup,
+  Input,
   Radio,
   RadioGroup,
   Stack,
@@ -10,6 +11,7 @@ import {
 import { MarketType } from '../types/marketType';
 import { ParticipantType } from '../types/participantType';
 import { CategoryType } from '../types/categoryType';
+import { DatePicker } from '@components/DatePicker';
 
 export const SelectionOptionsForm = () => {
   const [exectueBy, setExecuteBy] = useState<{
@@ -17,11 +19,13 @@ export const SelectionOptionsForm = () => {
     market: MarketType | undefined;
     participant: Array<string | number> | undefined;
     category: Array<string | number> | undefined;
+    dateTime: any;
   }>({
     browser: 'chrome',
     market: undefined,
     participant: undefined,
     category: undefined,
+    dateTime: undefined,
   });
 
   const marketList: Array<{ value: MarketType; text: string }> = [
@@ -210,6 +214,16 @@ export const SelectionOptionsForm = () => {
             </Stack>
           </CheckboxGroup>
         </div>
+      </div>
+
+      <div className=" mt-7 md:w-2/3">
+        <DatePicker
+          showTimeSelect
+          value={exectueBy['dateTime']}
+          onChange={(value: any) =>
+            setExecuteBy({ ...exectueBy, dateTime: value })
+          }
+        />
       </div>
     </>
   );
