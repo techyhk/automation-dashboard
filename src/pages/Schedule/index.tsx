@@ -2,7 +2,7 @@ import React from 'react';
 import { Header } from '@components/Header';
 import { MainWrapper } from '@components/MainWrapper';
 import { ExecutionForm } from './components/ExecutionForm';
-import { SelectionOptionsForm } from './components/SelectionOptionsForm';
+import { AdvanceExecutionForm } from './components/AdvanceExecutionForm';
 import { Box, Text } from '@chakra-ui/react';
 
 export const Schedule = () => {
@@ -22,7 +22,7 @@ export const Schedule = () => {
         </Box>
 
         <div className="mt-7">
-          <SelectionOptionsForm />
+          <AdvanceExecutionForm />
         </div>
       </div>
 

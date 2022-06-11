@@ -22,7 +22,7 @@ import { ClassNames } from '@emotion/react';
 const CustomInput = forwardRef<any, any>((props, ref) => {
   return (
     <InputGroup>
-      <Input {...props} ref={ref} />
+      <Input {...props} ref={ref} className="pl-0" />
       <InputRightElement
         userSelect="none"
         pointerEvents="none"

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Checkbox,
   CheckboxGroup,
-  Input,
   Radio,
   RadioGroup,
   Stack,
@@ -13,7 +12,7 @@ import { ParticipantType } from '../types/participantType';
 import { CategoryType } from '../types/categoryType';
 import { DatePicker } from '@components/DatePicker';
 
-export const SelectionOptionsForm = () => {
+export const AdvanceExecutionForm = () => {
   const [exectueBy, setExecuteBy] = useState<{
     browser: string;
     market: MarketType | undefined;
@@ -120,11 +119,13 @@ export const SelectionOptionsForm = () => {
 
   return (
     <>
-      <div className="flex md:flex-row flex-col gap-10">
-        <Text fontSize="md" fontWeight="semibold">
-          Running Browser
-        </Text>
-        <div>
+      <div className="flex md:flex-row flex-col mt-7 gap-5">
+        <div className="md:w-36">
+          <Text fontSize="md" fontWeight="semibold">
+            Running Browser
+          </Text>
+        </div>
+        <div className="md:pl-2 xl:pl-6">
           <RadioGroup
             defaultValue={exectueBy['browser']}
             onChange={(value) => setExecuteBy({ ...exectueBy, browser: value })}
@@ -147,11 +148,13 @@ export const SelectionOptionsForm = () => {
         </div>
       </div>
 
-      <div className="flex md:flex-row flex-col gap-10 mt-7">
-        <Text fontSize="md" fontWeight="semibold">
-          Market
-        </Text>
-        <div>
+      <div className="flex md:flex-row flex-col mt-7 gap-5">
+        <div className="md:w-36">
+          <Text fontSize="md" fontWeight="semibold">
+            Market
+          </Text>
+        </div>
+        <div className="md:pl-2 xl:pl-6">
           <RadioGroup
             onChange={(value) =>
               setExecuteBy({ ...exectueBy, market: value as MarketType })
@@ -169,11 +172,13 @@ export const SelectionOptionsForm = () => {
       </div>
 
       {exectueBy['market'] && (
-        <div className="flex md:flex-row flex-col gap-10 mt-7">
-          <Text fontSize="md" fontWeight="semibold">
-            Participant
-          </Text>
-          <div>
+        <div className="flex md:flex-row flex-col mt-7 gap-5">
+          <div className="md:w-36">
+            <Text fontSize="md" fontWeight="semibold">
+              Participant
+            </Text>
+          </div>
+          <div className="md:pl-2 xl:pl-6">
             <CheckboxGroup
               colorScheme="cyan"
               onChange={(value) =>
@@ -194,11 +199,13 @@ export const SelectionOptionsForm = () => {
         </div>
       )}
 
-      <div className="flex md:flex-row flex-col gap-10 mt-7">
-        <Text fontSize="md" fontWeight="semibold">
-          Category
-        </Text>
-        <div>
+      <div className="flex md:flex-row flex-col mt-7 gap-5">
+        <div className="md:w-36">
+          <Text fontSize="md" fontWeight="semibold">
+            Category
+          </Text>
+        </div>
+        <div className="md:pl-2 xl:pl-6">
           <CheckboxGroup
             colorScheme="cyan"
             onChange={(value) =>
@@ -216,7 +223,12 @@ export const SelectionOptionsForm = () => {
         </div>
       </div>
 
-      <div className=" mt-7 md:w-2/3">
+      <div className="flex md:flex-row flex-col md:gap-16 gap-5 mt-7 w-2/3">
+        <div className="md:w-36">
+          <Text fontSize="md" fontWeight="semibold">
+            Schedule on
+          </Text>
+        </div>
         <DatePicker
           showTimeSelect
           value={exectueBy['dateTime']}
