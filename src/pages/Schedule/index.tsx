@@ -45,7 +45,7 @@ export const Schedule = () => {
         <div>
           <AccordionItem>
             <AccordionButton>
-              <Box flex="1" textAlign="left" className="mt-10">
+              <Box flex="1" textAlign="left">
                 <Text fontSize="xl" fontWeight="thin">
                   Schedule List
                 </Text>
