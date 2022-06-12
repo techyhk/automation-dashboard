@@ -2,6 +2,7 @@ import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
+import './global.scss';
 
 import { Sidebar } from '@components/Sidebar';
 import { routesConfig } from '@configs/routes';
