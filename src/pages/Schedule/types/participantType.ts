@@ -2,7 +2,7 @@ export type ParticipantType =
   | 'aurora'
   | 'yurika'
   | 'eq'
-  | 'ea'
+  | 'vrt'
   | 'red_vicgas'
   | 'red_sagas'
   | 'red_nswgas'
